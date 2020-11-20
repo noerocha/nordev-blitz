@@ -259,6 +259,6 @@ const Home: BlitzPage = () => {
   )
 }
 
-Home.getLayout = (page) => <Layout title="Home, Sweet Blitz">{page}</Layout>
+Home.getLayout = (page) => <Layout title="Home">{page}</Layout>
 
 export default Home
