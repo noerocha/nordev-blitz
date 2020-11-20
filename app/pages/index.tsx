@@ -15,246 +15,86 @@ const UserInfo = () => {
 
   if (currentUser) {
     return (
-      <>
+      <div className="flex justify-end items-center w-full bg-red-200">
+        <div>
+          <span className="inline-block mr-2 lowercase">
+            User id: <code className="font-bold text-sm">{currentUser.id}</code>
+          </span>
+          <span className="inline-block mr-2 lowercase">
+            User role: <code className="font-bold text-sm">{currentUser.role}</code>
+          </span>
+        </div>
+
         <button
           className="button small"
           onClick={async () => {
             await logoutMutation()
           }}
         >
-          Logout
+          <span className="inline-block m-4 text-blue-500 font-bold">Logout</span>
         </button>
-        <div>
-          User id: <code>{currentUser.id}</code>
-          <br />
-          User role: <code>{currentUser.role}</code>
-        </div>
-      </>
+      </div>
     )
   } else {
     return (
-      <>
+      <div className="flex justify-end w-full bg-red-200">
         <Link href="/signup">
           <a className="button small">
-            <strong>Sign Up</strong>
+            <span className="inline-block m-4 text-blue-500 font-bold">Sign Up</span>
           </a>
         </Link>
         <Link href="/login">
           <a className="button small">
-            <strong>Login</strong>
+            <strong className="inline-block m-4 text-blue-500 font-bold">Login</strong>
           </a>
         </Link>
-      </>
+      </div>
     )
   }
 }
 
 const Home: BlitzPage = () => {
   return (
-    <div className="container">
-      <main>
-        <div className="logo">
-          <img src="/logo.png" alt="blitz.js" />
+    <div className="flex flex-col bg-red-600 min-h-screen min-w-full">
+      <div className="flex-none m-4">
+        <Suspense fallback="Loading...">
+          <UserInfo />
+        </Suspense>
+      </div>
+
+      {/* <div className="flex-none h-16">
+        <Suspense fallback="Loading...">
+          <UserInfo />
+        </Suspense>
+      </div> */}
+
+      <div className="flex-auto bg-gray-700">
+        <div className="flex flex-col justify-center items-center bg-red-700 m-4">
+          <div className="bg-red-500 h-56 w-56">A</div>
+          {/* <div className="h-56 w-full text-white bg-black">A</div>
+          <div className="h-56 w-full text-white bg-black">A</div> */}
         </div>
-        <p>
-          <strong>Congrats!</strong> Your app is ready, including user sign-up and log-in.
-        </p>
-        <div className="buttons" style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-          <Suspense fallback="Loading...">
-            <UserInfo />
-          </Suspense>
+        {/* <div className="flex flex-col items-center justify-center bg-blue-900">
+          <div className="bg-white h-56 w-full">Content 1</div>
+          <div className="flex justify-center items-center bg-red-900 h-56 w-full">Content 2</div>
+        </div> */}
+      </div>
+
+      {/* <div className="flex-grow bg-green-200">
+        <div className="flex flex-col justify-center content-center">
+          <div className="bg-blue-100 my-2 p-4">100</div>
+          <div className="bg-blue-200 my-2 p-4">200</div>
+          <div className="bg-blue-300 my-2 p-4">300</div>
+          <div className="bg-blue-400 my-2 p-4">400</div>
+          <div className="bg-blue-500 my-2 p-4">500</div>
+          <div className="bg-blue-600 my-2 p-4">600</div>
+          <div className="bg-blue-700 my-2 p-4">700</div>
+          <div className="bg-blue-800 my-2 p-4">800</div>
+          <div className="bg-blue-900 my-2 p-4">900</div>
         </div>
-        <p>
-          <strong>
-            To add a new model to your app, <br />
-            run the following in your terminal:
-          </strong>
-        </p>
-        <pre>
-          <code>blitz generate all project name:string</code>
-        </pre>
-        <pre>
-          <code>blitz db migrate</code>
-        </pre>
+      </div> */}
 
-        <p>
-          Then <strong>restart the server</strong>
-            <pre><code>Ctrl + c</code></pre>
-            <pre><code>blitz start</code></pre>
-            and go to{" "}
-          <Link href="/projects">
-            <a>/projects</a>
-          </Link>
-        </p>
-        <div className="buttons" style={{ marginTop: "5rem" }}>
-          <a
-            className="button"
-            href="https://blitzjs.com/docs/getting-started?utm_source=blitz-new&utm_medium=app-template&utm_campaign=blitz-new"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-          <a
-            className="button-outline"
-            href="https://github.com/blitz-js/blitz"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github Repo
-          </a>
-          <a
-            className="button-outline"
-            href="https://slack.blitzjs.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Slack Community
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://blitzjs.com?utm_source=blitz-new&utm_medium=app-template&utm_campaign=blitz-new"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Blitz.js
-        </a>
-      </footer>
-
-      <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;700&display=swap");
-
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: "Libre Franklin", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        }
-
-        * {
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          box-sizing: border-box;
-        }
-        .container {
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main p {
-          font-size: 1.2rem;
-        }
-
-        p {
-          text-align: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 60px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #45009d;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer a {
-          color: #f4f4f4;
-          text-decoration: none;
-        }
-
-        .logo {
-          margin-bottom: 2rem;
-        }
-
-        .logo img {
-          width: 300px;
-        }
-
-        .buttons {
-          display: grid;
-          grid-auto-flow: column;
-          grid-gap: 0.5rem;
-        }
-        .button {
-          font-size: 1rem;
-          background-color: #6700eb;
-          padding: 1rem 2rem;
-          color: #f4f4f4;
-          text-align: center;
-        }
-
-        .button.small {
-          padding: 0.5rem 1rem;
-        }
-
-        .button:hover {
-          background-color: #45009d;
-        }
-
-        .button-outline {
-          border: 2px solid #6700eb;
-          padding: 1rem 2rem;
-          color: #6700eb;
-          text-align: center;
-        }
-
-        .button-outline:hover {
-          border-color: #45009d;
-          color: #45009d;
-        }
-
-        pre {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-        }
-        code {
-          font-size: 0.9rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-            Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
+      <div className="flex-none h-16 bg-gray-300">FOOTER</div>
     </div>
   )
 }
