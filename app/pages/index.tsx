@@ -15,7 +15,7 @@ const UserInfo = () => {
 
   if (currentUser) {
     return (
-      <div className="flex justify-end items-center w-full bg-red-200">
+      <div className="flex justify-end items-center text-white bg-red-800 h-full px-4">
         <div>
           <span className="inline-block mr-2 lowercase">
             User id: <code className="font-bold text-sm">{currentUser.id}</code>
@@ -24,20 +24,21 @@ const UserInfo = () => {
             User role: <code className="font-bold text-sm">{currentUser.role}</code>
           </span>
         </div>
-
-        <button
-          className="button small"
-          onClick={async () => {
-            await logoutMutation()
-          }}
-        >
-          <span className="inline-block m-4 text-blue-500 font-bold">Logout</span>
-        </button>
+        <div>
+          <button
+            className="button small"
+            onClick={async () => {
+              await logoutMutation()
+            }}
+          >
+            <span className="inline-block font-bold">Logout</span>
+          </button>
+        </div>
       </div>
     )
   } else {
     return (
-      <div className="flex justify-end w-full bg-red-200">
+      <div className="flex justify-end items-center bg-white h-full px-2">
         <Link href="/signup">
           <a className="button small">
             <span className="inline-block m-4 text-blue-500 font-bold">Sign Up</span>
@@ -55,46 +56,33 @@ const UserInfo = () => {
 
 const Home: BlitzPage = () => {
   return (
-    <div className="flex flex-col bg-red-600 min-h-screen min-w-full">
-      <div className="flex-none m-4">
+    <div className="bg-gray-300 h-screen text-gray-600 flex flex-col">
+      {/* NAV */}
+      <div className="h-12 bg-red-200">
         <Suspense fallback="Loading...">
           <UserInfo />
         </Suspense>
       </div>
 
-      {/* <div className="flex-none h-16">
-        <Suspense fallback="Loading...">
-          <UserInfo />
-        </Suspense>
-      </div> */}
-
-      <div className="flex-auto bg-gray-700">
-        <div className="flex flex-col justify-center items-center bg-red-700 m-4">
-          <div className="bg-red-500 h-56 w-56">A</div>
-          {/* <div className="h-56 w-full text-white bg-black">A</div>
-          <div className="h-56 w-full text-white bg-black">A</div> */}
+      <div className="flex flex-1">
+        <div className="bg-gray-800 p-6 w-64">sidebar</div>
+        <div className="flex-1">
+          <div className="p-8">
+            <h1 className="text-2xl text-gray-800">Content</h1>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+            <div className="bg-gray-500 h-4 mt-4"></div>
+          </div>
         </div>
-        {/* <div className="flex flex-col items-center justify-center bg-blue-900">
-          <div className="bg-white h-56 w-full">Content 1</div>
-          <div className="flex justify-center items-center bg-red-900 h-56 w-full">Content 2</div>
-        </div> */}
       </div>
 
-      {/* <div className="flex-grow bg-green-200">
-        <div className="flex flex-col justify-center content-center">
-          <div className="bg-blue-100 my-2 p-4">100</div>
-          <div className="bg-blue-200 my-2 p-4">200</div>
-          <div className="bg-blue-300 my-2 p-4">300</div>
-          <div className="bg-blue-400 my-2 p-4">400</div>
-          <div className="bg-blue-500 my-2 p-4">500</div>
-          <div className="bg-blue-600 my-2 p-4">600</div>
-          <div className="bg-blue-700 my-2 p-4">700</div>
-          <div className="bg-blue-800 my-2 p-4">800</div>
-          <div className="bg-blue-900 my-2 p-4">900</div>
-        </div>
-      </div> */}
-
-      <div className="flex-none h-16 bg-gray-300">FOOTER</div>
+      {/* FOOTER */}
+      <div className="flex justify-center items-end h-12 bg-gray-300">FOOTER</div>
     </div>
   )
 }
