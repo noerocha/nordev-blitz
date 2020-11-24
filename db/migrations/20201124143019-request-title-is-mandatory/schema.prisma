@@ -3,7 +3,7 @@
 
 datasource db {
     provider = "sqlite"
-    url      = env("DATABASE_URL")
+    url = "***"
 }
 
 generator client {
@@ -23,8 +23,6 @@ model User {
     sessions       Session[]
     products       Product[]
     requests       Request[]
-
-    votesOnRequest VotesOnRequest[]
 }
 
 model Session {
@@ -62,19 +60,4 @@ model Request {
     productId   Int
     user        User?    @relation(fields: [userId], references: [id])
     userId      Int?
-
-    votesOnRequest VotesOnRequest[]
-}
-
-model VotesOnRequest {
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    request   Request @relation(fields: [requestId], references: [id])
-    requestId Int
-
-    user   User @relation(fields: [userId], references: [id])
-    userId Int
-
-    @@id([userId, requestId])
 }

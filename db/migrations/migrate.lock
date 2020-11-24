@@ -4,3 +4,6 @@
 20201119165316-products
 20201120153553-product-and-request-models
 20201120154003-added-relations-to-product-and-request-models
+20201124093100-changes-to-request-model
+20201124143019-request-title-is-mandatory
+20201124151244-votes-on-request-model

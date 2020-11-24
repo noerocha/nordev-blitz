@@ -1,0 +1,29 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "UpdateField",
+      "model": "Request",
+      "field": "title",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Request",
+      "field": "description",
+      "arity": "Optional"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Request",
+      "field": "product",
+      "arity": "Required"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Request",
+      "field": "productId",
+      "arity": "Required"
+    }
+  ]
+}

@@ -65,24 +65,52 @@ const Home: BlitzPage = () => {
       </div>
 
       <div className="flex flex-1">
+        {/* SIDEBAR */}
         <div className="bg-gray-800 p-6 w-64">sidebar</div>
-        <div className="flex-1">
-          <div className="p-8">
-            <h1 className="text-2xl text-gray-800">Content</h1>
-            <div className="bg-gray-500 h-4 mt-4"></div>
-            <div className="bg-gray-500 h-4 mt-4"></div>
-            <div className="bg-gray-500 h-4 mt-4"></div>
-            <div className="bg-gray-500 h-4 mt-4"></div>
-            <div className="bg-gray-500 h-4 mt-4"></div>
-            <div className="bg-gray-500 h-4 mt-4"></div>
-            <div className="bg-gray-500 h-4 mt-4"></div>
-            <div className="bg-gray-500 h-4 mt-4"></div>
+        {/* CONTENT */}
+        <div className="flex flex-col flex-1">
+          <div className="flex flex-1 overflow-hidden">
+            <div className="flex-1 m-8 bg-indigo-200 p-6">
+              <h1 className="px-1 py-2 text-2xl text-gray-800">Content</h1>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+              <div className="bg-gray-500 h-4 mt-4"></div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* FOOTER */}
-      <div className="flex justify-center items-end h-12 bg-gray-300">FOOTER</div>
+      <div className="flex justify-center items-end h-12 p-4 bg-gray-300">
+        <p>Footer</p>
+      </div>
     </div>
   )
 }
